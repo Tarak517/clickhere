@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      height: 100vh;
+      background: linear-gradient(-45deg, #ff9a9e, #e0868c, #ffbfc5, #d396c2);
+      background-size: 400% 400%;
+      animation: gradientMove 15s ease infinite;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 15px;
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .card1 {
+      background: rgb(255, 205, 214);
+      border-radius: 14px;
+      box-shadow: 0 20px 40px rgb(119, 56, 67);
+      padding: 30px 20px;
+      width: 100%;
+      max-width: 400px;
+      position: relative;
+      text-align: center;
+    }
+
+    .flower-border-top,
+    .flower-border-bottom {
+      font-size: 22px;
+      text-align: center;
+    }
+
+    .flower-border-top {
+      position: absolute;
+      top: -30px;
+      width: 100%;
+    }
+
+    .flower-border-bottom {
+      position: absolute;
+      bottom: -30px;
+      width: 100%;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 2px solid #eaa5aa;
+      outline: none;
+      margin-bottom: 15px;
+    }
+
+    input[type="text"]:focus {
+      border-color: #f19ca6;
+      box-shadow: 0 0 5px rgba(229, 145, 218, 0.5);
+    }
+
+    @media (max-width: 576px) {
+      .card1 h3 {
+        font-size: 20px;
+      }
+      .flower-border-top,
+      .flower-border-bottom {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="card1">
+    <div class="flower-border-top">🌸🌸🌸🌸🌸🌸🌸🌸</div>
+
+    <h3>mee peru cheppagalara Manasa Garu:</h3>
+    <input type="text" id="nameInput" placeholder="mee peru nokkandi::">
+    <button class="btn btn-danger w-100" onclick="next()">Next</button>
+
+    <div class="flower-border-bottom">🌸🌸🌸🌸🌸🌸🌸🌸</div>
+  </div>
+
+  <script>
+    function next() {
+      const name = document.getElementById("nameInput").value.trim();
+      if (name === "") {
+        alert("Please enter your name.");
+        return;
+      }
+
+      localStorage.setItem("userName", name);
+      window.location.href = "second.html";
+    }
+  </script>
+</body>
+</html>

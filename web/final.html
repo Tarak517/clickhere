@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Final Surprise</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      text-align: center;
+      padding: 50px;
+      background-color: #fef3f7;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .main-img {
+      max-width: 50%;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      margin: 20px auto;
+    }
+
+    #countdown {
+      font-size: 48px;
+      color: hotpink;
+      margin-top: 30px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h2 class="mb-4 text-danger">You have a big surprise:: </h2>
+
+  <!-- Countdown Button -->
+  <div class="mt-4">
+    <button class="btn btn-success btn-lg" style="background-color: hotpink;" onclick="startCountdown()">Click Here to reveal Surprise</button>
+  </div>
+
+  <!-- Countdown display -->
+  <div id="countdown"></div>
+
+  <!-- Collapsible Content -->
+  <div class="collapse mt-4" id="hiddenMessage">
+    <div class="card card-body">
+      <img src="final.jpg" alt="First Surprise" class="main-img img-fluid">
+    </div>
+    <p style="font-size: smaller;">Thank you for Responding::<br>Good gaarl</p>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Countdown Script -->
+  <script>
+    function startCountdown() {
+      const countdownEl = document.getElementById("countdown");
+      let count = 3;
+
+      countdownEl.textContent = count;
+
+      const interval = setInterval(() => {
+        count--;
+        if (count > 0) {
+          countdownEl.textContent = count;
+        } else {
+          clearInterval(interval);
+          countdownEl.textContent = "";
+          // Show the surprise
+          const collapseElement = new bootstrap.Collapse(document.getElementById('hiddenMessage'), {
+            show: true
+          });
+        }
+      }, 1000);
+    }
+  </script>
+</body>
+</html>

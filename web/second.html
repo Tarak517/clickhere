@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Surprise</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: #ffe2e9;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+
+    video {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h2 id="greeting" class="text-danger mb-3"></h2>
+  <p>I'm here to check on your day!</p>
+
+  <!-- 🔧 Fixed: Added muted for autoplay -->
+  <video controls autoplay >
+    <source src="second.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+
+  <button class="btn btn-danger mt-4" onclick="next()">If Ok click Next >></button>
+
+  <script>
+    document.getElementById("greeting").textContent =
+      "Hehehehehe, " + (localStorage.getItem("userName") || "Guest") + "!";
+    function next() {
+      window.location.href = "third.html";
+    }
+  </script>
+</body>
+</html>
